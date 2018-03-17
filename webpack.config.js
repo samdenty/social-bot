@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/App.tsx',
   output: {
     path: path.resolve(__dirname) + '/dist',
-    filename: 'SocialBot.min.js',
+    filename: 'socialbot.core.js',
     publicPath: '/'
   },
 

@@ -51,7 +51,7 @@ class StateHandler {
     config: {
       debug: false,
 
-      image: null,
+      icon: null,
       size: '50% 50%',
       theme: 'material',
       color: '#7289DA',
@@ -92,11 +92,11 @@ class StateHandler {
   eventListeners = {}
   allEventListeners = []
 
-  constructor(type, config) {
+  constructor(config) {
     if (!window.socialbot) {
       window.socialbot = this
     }
-    ParseConfig(this.state, type, config)
+    ParseConfig(this.state, config)
       .then((config) => {
         this.setState({
           classes: jss(config),
@@ -157,7 +157,7 @@ class StateHandler {
 
   // Deep merges the new config with the current config
   config(config: any, programmatic?: boolean) {
-    ParseConfig(this.state, '', config)
+    ParseConfig(this.state, config)
       .then((config) => {
         this.setState({
           classes: jss(config),
@@ -394,10 +394,6 @@ window.SocialBot = class {
   }
 
   static Core = Core
-
-  static then() {
-
-  }
 }
 
 // Load crate from inside script tag

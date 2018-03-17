@@ -37,14 +37,12 @@ export class Renderer extends React.Component<{ api: any }> {
       <div className={`crate ${classes.crate}`}>
         {!contains(config.disable, 'embed') && <Embed
           view={this.state.view}
-          event={api.event.bind(this)}
           config={this.state.config}
           setIframe={(iframe) => (this.state.iframe = iframe)}
         />}
 
         {!contains(config.disable, 'toggle') && <Toggle
           view={this.state.view}
-          event={api.event.bind(this)}
           config={this.state.config}
           toggle={api.toggle.bind(this)}
           notifications={this.state.notifications}
@@ -54,12 +52,9 @@ export class Renderer extends React.Component<{ api: any }> {
           !this.state.view.open && (
             <Toasts
               view={this.state.view}
-              event={api.event.bind(this)}
               config={this.state.config}
-              openUser={api.user.bind(this)}
-              expand={api.expandMessage.bind(this)}
               messages={this.state.notifications.messages}
-              crateEvent={api.crateEvent.bind(this)}
+              event={api.event.bind(this)}
             />
           )}
       </div>
@@ -75,5 +70,4 @@ export class Renderer extends React.Component<{ api: any }> {
   }
 
   event = this.props.api.event.bind(this)
-  crateEvent = this.props.api.crateEvent.bind(this)
 }
