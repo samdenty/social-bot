@@ -67,6 +67,7 @@ class StateHandler {
           maxHeight: 'calc(70% - 100px)'
         }
       },
+      avatar: null,
 
       mobile: {
         maxWidth: 500,
@@ -276,7 +277,7 @@ class Core extends StateHandler {
   message(
     message: string,
     visibility: number,
-    avatar: string = 'https://beta.widgetbot.io/embed/335391242248519680/335391242248519680/0002/default.webp'
+    avatar: string = this.state.config.avatar
   ) {
     let { unread, pinged, messages } = this.state.notifications
 
@@ -394,6 +395,10 @@ window.SocialBot = class {
   }
 
   static Core = Core
+
+  static module(name: string, generator: Function) {
+    window.globalSocialBot.modules[name] = generator()
+  }
 }
 
 // Load crate from inside script tag

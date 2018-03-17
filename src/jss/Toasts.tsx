@@ -44,6 +44,9 @@ export default (config: Config) => {
           textDecoration: 'underline'
         }
       },
+      '& p': {
+        margin: 0
+      }
     },
     'toast-hidden': {
       opacity: '0 !important',

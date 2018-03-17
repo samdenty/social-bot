@@ -34,7 +34,7 @@ export class Renderer extends React.Component<{ api: any }> {
     let { api } = this.props
 
     return classes ? (
-      <div className={`crate ${classes.crate}`}>
+      <div className={`socialbot ${classes.socialbot}`}>
         {!contains(config.disable, 'embed') && <Embed
           view={this.state.view}
           config={this.state.config}

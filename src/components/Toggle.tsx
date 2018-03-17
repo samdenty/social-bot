@@ -45,9 +45,9 @@ export class Toggle extends React.Component<Props, {}> {
       <Transition in={this.state.entered} timeout={10}>
         {(state) => (
           <div
-            className={`crate-toggle ${classes.toggle} ${classes.toggle}-${state} ${
+            className={`socialbot-toggle ${classes.toggle} ${classes.toggle}-${state} ${
               notifications.pinged
-                ? `crate-toggle-pinged ${classes['toggle-pinged']}`
+                ? `socialbot-toggle-pinged ${classes['toggle-pinged']}`
                 : ''
             }`}
             onClick={toggle.bind(this)}>
@@ -77,7 +77,7 @@ class ButtonOpen extends React.Component<Buttons, {}> {
     let { view, classes } = this.props
     return (
       <div
-        className={`crate-toggle-glyph crate-toggle-open ${
+        className={`socialbot-toggle-glyph socialbot-toggle-open ${
           classes['button-glyph']
         } ${classes['button-open']} ${
           view.open ? classes['button-open:toggled'] : ``
@@ -92,7 +92,7 @@ class ButtonClose extends React.Component<Buttons, {}> {
     let { view, classes } = this.props
     return (
       <div
-        className={`crate-toggle-glyph crate-toggle-close ${
+        className={`socialbot-toggle-glyph socialbot-toggle-close ${
           classes['button-glyph']
         } ${classes['button-close']} ${
           view.open ? classes['button-close:toggled'] : ``
@@ -113,7 +113,7 @@ class Indicator extends React.Component<UnreadIndicator, {}> {
     let { unread, pinged, classes } = this.props
     return (
       <div
-        className={`crate-unread-indicator ${classes.indicator} ${
+        className={`socialbot-unread-indicator ${classes.indicator} ${
           pinged ? classes['indicator-pinged'] : ''
         }`}>
         {unread !== 0 ? (unread > 99 ? '99' : unread) : ''}

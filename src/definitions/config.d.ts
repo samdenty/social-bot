@@ -30,6 +30,7 @@ export interface Config {
       maxHeight?: string        // Max height of the toast container, CSS `calc()` can be used
     }
   }
+  avatar: string                // Default avatar
 
   /**
    * General options

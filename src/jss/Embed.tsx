@@ -73,11 +73,35 @@ export default (config: Config) => {
     },
     'loading-svg': {
       position: 'absolute !important',
-      width: '458px !important',
-      height: '458px !important',
+      width: '100px !important',
+      height: '100px !important',
       top: '50% !important',
       left: '50% !important',
       transform: 'translate(-50%, -50%) scale(0.6) !important',
+      '& .double-bounce1, .double-bounce2': {
+        width: '100%',
+        height: '100%',
+        borderRadius: '50%',
+        backgroundColor: config.scheme === 'dark' ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.2)',
+        opacity: '0.6',
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        animation: 'bounce 2.0s infinite ease-in-out'
+      },
+      '& .double-bounce2': {
+        animationDelay: '-1.0s'
+      },
+    },
+    '@keyframes bounce': {
+      '0%, 100%': {
+        transform: 'scale(0.0)',
+        webkitTransform: 'scale(0.0)'
+      },
+      '50%': {
+        transform: 'scale(1.0)',
+        webkitTransform: 'scale(1.0)'
+      }
     },
     [`@media screen and (max-width: ${config.mobile.maxWidth}px)`]: {
       ...mobileStyle

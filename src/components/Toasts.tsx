@@ -4,7 +4,7 @@ import { Config } from '../definitions/config'
 import { View } from '../definitions/view'
 import { Notifications } from '../definitions/notifications'
 import jss from '../jss/Toasts'
-const { toHTML: parse } = require('discord-markdown')
+const { toHTML: parse } = require('markdown').markdown
 
 interface Props extends View {
   messages: any
@@ -40,7 +40,7 @@ export class Toasts extends React.Component<Props, {}> {
     } = this.props
     let { classes } = this
     return (
-      <div className={`crate-toast-box ${classes['toast-box']}`}>
+      <div className={`socialbot-toast-box ${classes['toast-box']}`}>
         {/* Reversing the message array and use column-reverse to prevent the need for scrolling */}
         {messages.map(({ expiration, message }, i: number) => {
           return (
@@ -138,20 +138,20 @@ class Toast extends React.Component<ToastProps, {}> {
     let { message, classes, config, event, last, expiration } = this.props
     return this.state.render ? (
       <div
-        className={`crate-toast ${classes.toast} ${
+        className={`socialbot-toast ${classes.toast} ${
           last ? classes['toast-hidden'] : ''
         }`}
         ref={(toast) => (this.toast = toast)}>
         <img
           src={
             message.author.avatar ||
-            'https://beta.widgetbot.io/embed/335391242248519680/335391242248519680/0002/default.webp'
+            config.avatar
           }
-          className={`crate-toast-avatar ${classes['toast-avatar']}`}
+          className={`socialbot-toast-avatar ${classes['toast-avatar']}`}
         />
-        <div className={`crate-toast-message ${classes['toast-message']}`}>
+        <div className={`socialbot-toast-message ${classes['toast-message']}`}>
           <div
-            className={`crate-toast-content ${classes['toast-content']}`}
+            className={`socialbot-toast-content ${classes['toast-content']}`}
             dangerouslySetInnerHTML={{ __html: message.content ? parse(message.content) : '' }}
             onClick={() => event('message-click', message)}
           />

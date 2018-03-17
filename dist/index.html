@@ -5,12 +5,16 @@
 <body style="background: #888">
   <script src="./socialbot.core.js" async defer>
     new SocialBot('twitter', {
-      position: ['bottom', 'right']
+      username: 'thesamdd',
+      position: ['bottom', 'right'],
+      scheme: 'dark'
     }, bot => {
+      bot.message('View my **tweets** by clicking below', false)
       console.log(bot)
       // bot.toggle()
     })
     new SocialBot('facebook', {
+      username: 'iAmNotMarkZuckerbergYouMorons',
       position: ['top', 'right']
     }, bot => {
       console.log(bot)

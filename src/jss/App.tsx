@@ -11,7 +11,7 @@ jss.use(camelCase(), nested())
 
 export default (config: Config) => {
   const styles = {
-    crate: {
+    socialbot: {
       transition: 'opacity 0.2s ease',
       '& div, img, span': {
         all: 'unset',
